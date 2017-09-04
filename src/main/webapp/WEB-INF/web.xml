@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>Gestionic</display-name>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:applicationContext*.xml</param-value>
+	</context-param>
+	<!-- <context-param> -->
+	<!-- <param-name>UIProvider</param-name> -->
+	<!-- <param-value>be.gestionic.web.util.SpringUIProvider</param-value> -->
+	<!-- </context-param> -->
+	<servlet>
+		<servlet-name>VaadinServlet</servlet-name>
+		<servlet-class>ru.xpoft.vaadin.SpringVaadinServlet</servlet-class>
+		<init-param>
+			<param-name>beanName</param-name>
+			<param-value>mainUI</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VaadinServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<description>Vaadin production mode</description>
+		<param-name>productionMode</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<!-- <resource-ref> -->
+	<!-- <description>JNDI Datasource</description> -->
+	<!-- <res-ref-name>jdbc/gest</res-ref-name> -->
+	<!-- <res-type>javax.sql.DataSource</res-type> -->
+	<!-- <res-auth>Container</res-auth> -->
+	<!-- </resource-ref> -->
+</web-app>
